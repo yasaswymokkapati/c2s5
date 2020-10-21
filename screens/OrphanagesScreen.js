@@ -7,8 +7,20 @@ export default class OrphanagesScreen extends React.Component{
         return(
             <View>
                 <TouchableOpacity
-                style = {styles.button}>
+                style = {styles.button}
+                onPress = {()=>{
+                    this.props.navigation.navigate('Register')
+                }}
+                >
                     <Text>Register your Orphanage</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                style = {styles.button}
+                onPress = {()=>{
+                    this.props.navigation.navigate('Checking')
+                }}
+                >
+                    <Text>Check your Orphanage</Text>
                 </TouchableOpacity>
             </View>
         )

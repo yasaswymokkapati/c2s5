@@ -52,7 +52,7 @@ export default class LoginScreen extends React.Component{
           <TouchableOpacity
             style={[styles.button,{marginBottom:20, marginTop:20}]}
             onPress = {()=>{this.userLogin(this.state.emailId, this.state.password)
-            this.props.navigation.navigate('Main')
+            this.props.navigation.navigate('DonorScreen')
             }}
             >
             <Text style={styles.buttonText}>Login</Text>
