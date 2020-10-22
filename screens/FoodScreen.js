@@ -11,6 +11,7 @@ import {
 import { Header } from 'react-native/Libraries/NewAppScreen';
 import AppHeader from '../components/AppHeader';
 import db from '../config';
+import {Picker, CustomPicker} from 'react-native-picker';
 import firebase from 'firebase';
 
 export default class Food extends React.Component {
@@ -22,6 +23,8 @@ export default class Food extends React.Component {
       address : '',
       typeOfFood : '',
       orphanage : '',
+      items: [{name: 'Orphanage 1'}, {name: 'Orphanage 2'}, {name: 'Orphanage 3'}],
+      value: 'Orphanage 1'
     }
   }
   goMain = () => {
@@ -36,6 +39,11 @@ export default class Food extends React.Component {
       'contact' : this.state.contact
     })
   }
+  renderItems() { 
+    return this.state.items.map((item, index) => { 
+      return <Item key={index + 1} label={item.name} value={item.name} /> 
+    });
+   }
   render() {
     return (
       <View>
@@ -76,6 +84,14 @@ export default class Food extends React.Component {
               name : text
             })
           }}
+          />
+          <CustomPicker 
+          items={this.renderItems()} 
+          style={[styles.selectOptions]} 
+          mode="dropdown" 
+          selectedValue={this.state.value} 
+          onValueChange={(value) => 
+          this.setState({ value: value})} 
           />
           <View>
             <TouchableOpacity style = {{justifyContent : 'center', alignItems : 'center', backgroundColor : 'yellow', padding : 10}}

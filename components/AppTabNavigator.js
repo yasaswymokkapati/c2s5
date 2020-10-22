@@ -8,14 +8,14 @@ export const AppTabNavigator = createBottomTabNavigator({
     Donor : {
         screen : Main,
         navigationOptions : {
-            tabBarIcon : <Image source = {require('#')} style = {{width : 20, height : 20}}/>,
+            //tabBarIcon : <Image source = {require('#')} style = {{width : 20, height : 20}}/>,
             tabBarLabel : 'Donor Screen'
         }
     },
     Orphanage : {
         screen : OrphanagesScreen,
         navigationOptions : {
-            tabBarIcon : <Image source = {require('#')} style = {{width : 20, height : 20}}/>,
+            //tabBarIcon : <Image source = {require('#')} style = {{width : 20, height : 20}}/>,
             tabBarLabel : 'Orphanage Screen'
         }
     }
