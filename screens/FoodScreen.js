@@ -11,7 +11,7 @@ import {
 import { Header } from 'react-native/Libraries/NewAppScreen';
 import AppHeader from '../components/AppHeader';
 import db from '../config';
-import {Picker, CustomPicker} from 'react-native-picker';
+import {RNPickerSelect} from 'react-native-picker-select';
 import firebase from 'firebase';
 
 export default class Food extends React.Component {

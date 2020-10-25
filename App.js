@@ -26,8 +26,8 @@ export default class App extends React.Component {
   }
 }
 var AppNavigator = createSwitchNavigator({
-  Signup : SignupScreen,
   Login : LoginScreen,
+  Signup : SignupScreen,
   Food: Food,
   Groceries: Groceries,
   Book: Book,
