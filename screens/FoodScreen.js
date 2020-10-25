@@ -24,7 +24,10 @@ export default class Food extends React.Component {
       typeOfFood : '',
       orphanage : '',
       items: [{name: 'Orphanage 1'}, {name: 'Orphanage 2'}, {name: 'Orphanage 3'}],
-      value: 'Orphanage 1'
+      value: 'Orphanage 1',
+      orphanage1 : '',
+      orphanage2 : '',
+      orphanage3 : ''
     }
   }
   goMain = () => {
@@ -44,6 +47,36 @@ export default class Food extends React.Component {
       return <Item key={index + 1} label={item.name} value={item.name} /> 
     });
    }
+   getOrph1=()=>{
+    db.collection('Orphanages').where('name', '==', this.state.orphanage1).doc(doc.id).get()
+    .then(snapshot=>{
+      snapshot.forEach(doc=>{
+        this.setState({
+          orphanage1 : doc.data().name
+        })
+      })
+    })
+  }
+   getOrph2=()=>{
+    db.collection('Orphanages').where('name', '==', this.state.orphanage1).doc(doc.id).get()
+    .then(snapshot=>{
+      snapshot.forEach(doc=>{
+        this.setState({
+          orphanage2 : doc.data().name
+        })
+      })
+    })
+  }
+  getOrph3=()=>{
+    db.collection('Orphanages').where('name', '==', this.state.orphanage1).doc(doc.id).get()
+    .then(snapshot=>{
+      snapshot.forEach(doc=>{
+        this.setState({
+          orphanage3 : doc.data().name
+        })
+      })
+    })
+  }
   render() {
     return (
       <View>
@@ -85,14 +118,14 @@ export default class Food extends React.Component {
             })
           }}
           />
-          <CustomPicker 
-          items={this.renderItems()} 
-          style={[styles.selectOptions]} 
-          mode="dropdown" 
-          selectedValue={this.state.value} 
-          onValueChange={(value) => 
-          this.setState({ value: value})} 
-          />
+          <RNPickerSelect
+            onValueChange={(value)=>this.setState({orphanage : value})}
+            items={[
+                { label: this.state.orphanage1},
+                { label: this.state.orphanage2},
+                { label: this.state.orphanage3},
+            ]}
+        />
           <View>
             <TouchableOpacity style = {{justifyContent : 'center', alignItems : 'center', backgroundColor : 'yellow', padding : 10}}
             onPress = {()=>{
